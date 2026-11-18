@@ -1,21 +1,20 @@
 {
   "name": "lb6",
   "version": "1.0.0",
-  "description": "Учебная лабораторная работа №5.",
+  "description": "Лабораторная работа №6.",
   "main": "script.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Trebo14/932420.Terebinov.Nikita.lab6.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Trebo14",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
