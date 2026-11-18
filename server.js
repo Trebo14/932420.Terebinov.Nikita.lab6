@@ -27,6 +27,34 @@ app.get('/hello/:name', (req, res) => {
     res.send(`Привет, ${req.params.name}!`);
 });
 
+const books = [
+    { title: 'Война и мир', author: 'Tolstoy', year: 1869 },
+    { title: 'Анна Каренина', author: 'Tolstoy', year: 1877 },
+    { title: 'Преступление и наказание', author: 'Dostoevsky', year: 1866 },
+    { title: 'Идиот', author: 'Dostoevsky', year: 1869 },
+    { title: 'Мастер и Маргарита', author: 'Bulgakov', year: 1967 },
+    { title: 'Собачье сердце', author: 'Bulgakov', year: 1925 }
+];
+
+app.get('/api/books', (req, res) => {
+    const { author, year } = req.query;
+    let result = books;
+
+    if (author !== undefined) {
+        const authorLower = String(author).toLowerCase();
+        result = result.filter(book => book.author.toLowerCase() === authorLower);
+    }
+
+    if (year !== undefined) {
+        const yearNum = Number(year);
+        if (Number.isNaN(yearNum))
+            return res.json([]);
+        result = result.filter(book => book.year === yearNum);
+    }
+
+    res.json(result);
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running: http://localhost:${PORT}`);
 });
